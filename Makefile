@@ -1,11 +1,14 @@
 all: git-ignored/git-multimail git-ignored/source-repo git-ignored/dest-repo responded-to-trigger
 
+clean:
+	rm -rf git-ignored/git-multimail git-ignored/source-repo git-ignored/source-repo.tmp git-ignored/dest-repo responded-to-trigger
+
 git-ignored/git-multimail:
 	mkdir -p git-ignored/git-multimail  # FIXME actually git clone
 
 git-ignored/source-repo:
-	git clone $GITHUB_URL git-ignored/source-repo.tmp
-	(cd source-repo ; git remote add dest ../dest-repo )
+	git clone ${GITHUB_URL} git-ignored/source-repo.tmp
+	(cd source-repo.tmp ; git remote add dest ../dest-repo )
 	mv git-ignored/source-repo.tmp git-ignored/source-repo
 
 git-ignored/dest-repo:
