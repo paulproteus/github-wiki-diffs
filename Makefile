@@ -19,7 +19,12 @@ git-ignored/source-repo:
 
 git-ignored/dest-repo:
 	(cd git-ignored ; git clone --bare source-repo dest-repo)
-	# FIXME: Configure git-multimail in this repo
+
+	# Tell git-multimail to send emails to the people we configured.
+	(cd git-ignored/dest-repo ; git config multimailhook.mailingList ${MULTIMAILHOOK_MAILINGLIST} )
+
+	# Tell git-multimail to send no ref change emails, since all we want is diffs.
+	(cd git-ignored/dest-repo ; git config multimailhook.refchangeList '' )
 
 git-ignored/responded-to-trigger: git-ignored/trigger
 	# The purpose of this Make target is that, if 'trigger' has been updated

@@ -17,3 +17,6 @@ variables:
 
 * REMOTE_GIT_REPO_URL (presumably set this to the https:// clone URL
   for the github URL you want to follow)
+
+* MULTIMAILHOOK_MAILINGLIST - comma-separated list of people to
+  receive git diff emails. See also https://github.com/mhagger/git-multimail
