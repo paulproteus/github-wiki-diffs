@@ -1,3 +1,19 @@
 This is a little Make script whose purpose, generally, is to send
 post-commit emails to people, including the full diff, whenever a
-github.com repository is updated.
+remote (e.g., github.com, or anywhere else really) repository is
+updated.
+
+Why it exists
+
+I wanted a way to keep people up to date when the Sandstorm wiki gets
+updated. The Sandstorm wiki is hosted on github.com, and github.com
+doesn't have a way to send change diffs for wikis.
+
+How to configure
+
+Notice the configuration.example file in the repository. Copy that
+to git-ignored/configuration, making sure to change the following
+variables:
+
+* REMOTE_GIT_REPO_URL (presumably set this to the https:// clone URL
+  for the github URL you want to follow)
