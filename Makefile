@@ -26,6 +26,16 @@ git-ignored/dest-repo:
 	# Tell git-multimail to send no ref change emails, since all we want is diffs.
 	(cd git-ignored/dest-repo ; git config multimailhook.refchangeList '' )
 
+	# Tell git-multimail who to send emails as.
+	#
+	# Note that it seems FROM_NAME does not any extra quoting, so
+	# long as it is quoted in the configuration file.
+	(cd git-ignored/dest-repo ; git config user.name ${FROM_EMAIL} )
+	(cd git-ignored/dest-repo ; git config user.email ${FROM_NAME} )
+
+	# Tell git-multimail to actually send patches, not just diff stat.
+	(cd git-ignored/dest-repo ; git config multimailhook.diffOpts '--stat --summary --find-copies-harder -p' )
+
 git-ignored/responded-to-trigger: git-ignored/trigger
 	# The purpose of this Make target is that, if 'trigger' has been updated
 	# since we last ran, we respond to the trigger.

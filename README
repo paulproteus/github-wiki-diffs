@@ -20,3 +20,10 @@ variables:
 
 * MULTIMAILHOOK_MAILINGLIST - comma-separated list of people to
   receive git diff emails. See also https://github.com/mhagger/git-multimail
+
+* FROM_EMAIL - email address the git commit bot should use for its
+  "From:" line.
+
+* FROM_NAME - name that the git commit bot should use for its "From:"
+  line. These together will be combined into something like
+  "FROM_NAME" <FROM_EMAIL>.

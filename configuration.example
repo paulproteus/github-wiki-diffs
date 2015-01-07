@@ -1,2 +1,4 @@
 REMOTE_GIT_REPO_URL=https://github.com/sandstorm-io/sandstorm.wiki.git
 MULTIMAILHOOK_MAILINGLIST=alice@example.com,bob@example.com
+FROM_EMAIL=git-commit-bot@example.com
+FROM_NAME="Git Commit Bot"
