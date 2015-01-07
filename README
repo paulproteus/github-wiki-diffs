@@ -1,0 +1,3 @@
+This is a little Make script whose purpose, generally, is to send
+post-commit emails to people, including the full diff, whenever a
+github.com repository is updated.
