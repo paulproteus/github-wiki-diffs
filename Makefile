@@ -7,11 +7,13 @@ git-ignored/configuration:
 	echo "You need to create a file called configuration. For instructions, see README."
 	exit 1
 
+include git-ignored/configuration
+
 git-ignored/git-multimail:
 	mkdir -p git-ignored/git-multimail  # FIXME actually git clone
 
 git-ignored/source-repo:
-	git clone ${GITHUB_URL} git-ignored/source-repo.tmp
+	git clone ${REMOTE_GIT_REPO_URL} git-ignored/source-repo.tmp
 	(cd git-ignored/source-repo.tmp ; git remote add dest ../dest-repo )
 	mv git-ignored/source-repo.tmp git-ignored/source-repo
 
