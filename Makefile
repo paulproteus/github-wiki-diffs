@@ -10,7 +10,7 @@ git-ignored/configuration:
 include git-ignored/configuration
 
 git-ignored/git-multimail:
-	mkdir -p git-ignored/git-multimail  # FIXME actually git clone
+	git clone https://github.com/mhagger/git-multimail.git git-ignored/git-multimail
 
 git-ignored/source-repo:
 	git clone ${REMOTE_GIT_REPO_URL} git-ignored/source-repo.tmp
