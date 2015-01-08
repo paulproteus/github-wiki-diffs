@@ -27,3 +27,8 @@ variables:
 * FROM_NAME - name that the git commit bot should use for its "From:"
   line. These together will be combined into something like
   "FROM_NAME" <FROM_EMAIL>.
+
+
+Then, add a cron job, like:
+
+* * * * * cd path-to-this-stuff ; make --quiet
