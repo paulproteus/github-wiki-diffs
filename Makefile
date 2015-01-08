@@ -20,6 +20,9 @@ git-ignored/source-repo:
 git-ignored/dest-repo:
 	(cd git-ignored ; git clone --bare source-repo dest-repo)
 
+	# Set up git-multimail has post-receive hook
+	(cd git-ignored/dest-repo ; ln -s ../git-multimail/git-multimail/git_multimail.py hooks/post-receive )
+
 	# Tell git-multimail to send emails to the people we configured.
 	(cd git-ignored/dest-repo ; git config multimailhook.mailingList ${MULTIMAILHOOK_MAILINGLIST} )
 
