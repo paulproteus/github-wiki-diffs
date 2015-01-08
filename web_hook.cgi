@@ -34,4 +34,4 @@ touch git-ignored/trigger
 
 # OK, so that's a wrap. But on the web, people expect a valid HTTP
 # response, so let's give them what they want.
-printf "Content-Type:text/plain\r\nSuccess."
+printf "Content-Type:text/plain\r\n\r\nSuccess."
