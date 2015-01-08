@@ -21,7 +21,7 @@ git-ignored/dest-repo:
 	(cd git-ignored ; git clone --bare source-repo dest-repo)
 
 	# Set up git-multimail has post-receive hook
-	(cd git-ignored/dest-repo ; ln -s ../git-multimail/git-multimail/git_multimail.py hooks/post-receive )
+	(cd git-ignored/dest-repo ; ln -s ../../git-multimail/git-multimail/git_multimail.py hooks/post-receive )
 
 	# Tell git-multimail to send emails to the people we configured.
 	(cd git-ignored/dest-repo ; git config multimailhook.mailingList ${MULTIMAILHOOK_MAILINGLIST} )
@@ -33,8 +33,8 @@ git-ignored/dest-repo:
 	#
 	# Note that it seems FROM_NAME does not any extra quoting, so
 	# long as it is quoted in the configuration file.
-	(cd git-ignored/dest-repo ; git config user.name ${FROM_EMAIL} )
-	(cd git-ignored/dest-repo ; git config user.email ${FROM_NAME} )
+	(cd git-ignored/dest-repo ; git config user.name ${FROM_NAME} )
+	(cd git-ignored/dest-repo ; git config user.email ${FROM_EMAIL} )
 
 	# Tell git-multimail to actually send patches, not just diff stat.
 	(cd git-ignored/dest-repo ; git config multimailhook.diffOpts '--stat --summary --find-copies-harder -p' )
@@ -51,7 +51,7 @@ git-ignored/responded-to-trigger: git-ignored/trigger
 	# out emails.
 	#
 	# "origin" here should already be configured as the github URL.
-	(cd git-ignored/source-repo && git fetch --quiet origin && git push --quiet dest origin/master:master )
+	(cd git-ignored/source-repo && git fetch origin && git push dest origin/master:master )
 	# Now, store a note so that Make doesn't do this repeatedly unnecessarily.
 	touch git-ignored/responded-to-trigger
 
