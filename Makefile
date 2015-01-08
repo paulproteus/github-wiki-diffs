@@ -26,6 +26,12 @@ git-ignored/dest-repo:
 	# Tell git-multimail to send emails to the people we configured.
 	(cd git-ignored/dest-repo ; git config multimailhook.mailingList ${MULTIMAILHOOK_MAILINGLIST} )
 
+	# Tell git-multimail that we do not need an email prefix.
+	#
+	# For us, the email prefix would just be the git repo name, and that
+	# is always dest-repo anyway.
+	(cd git-ignored/dest-repo ; git config multimailhook.emailPrefix '' )
+
 	# Tell git-multimail to send no ref change emails, since all we want is diffs.
 	(cd git-ignored/dest-repo ; git config multimailhook.refchangeList '' )
 
