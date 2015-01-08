@@ -51,7 +51,7 @@ git-ignored/responded-to-trigger: git-ignored/trigger
 	# out emails.
 	#
 	# "origin" here should already be configured as the github URL.
-	(cd git-ignored/source-repo && git fetch origin && git push dest origin/master:master )
+	(cd git-ignored/source-repo && git fetch --quiet origin && git push --quiet dest origin/master:master )
 	# Now, store a note so that Make doesn't do this repeatedly unnecessarily.
 	touch git-ignored/responded-to-trigger
 
